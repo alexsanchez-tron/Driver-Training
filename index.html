@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stashdash Delivery — Employee Handbook 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     STASHDASH DELIVERY — DESIGN SYSTEM
+     Black & White / High-contrast / Bold Grotesque
+  ============================================================ */
+  :root {
+    --black:    #000000;
+    --off-black:#111111;
+    --dark:     #161616;
+    --mid:      #2a2a2a;
+    --dim:      #555555;
+    --subtle:   #888888;
+    --border:   #e2e2e2;
+    --light:    #f4f4f4;
+    --off-white:#fafafa;
+    --white:    #ffffff;
+    --red:      #D93025;
+    --red-bg:   #FEF2F2;
+    --amber:    #B45309;
+    --amber-bg: #FFFBEB;
+    --radius:   6px;
+    --radius-lg:10px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    background: var(--white);
+    color: var(--off-black);
+    font-size: 14px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── SIDEBAR ─────────────────────────────────────────────── */
+  #sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: 252px;
+    height: 100vh;
+    background: var(--black);
+    overflow-y: auto;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+  }
+  #sidebar::-webkit-scrollbar { width: 3px; }
+  #sidebar::-webkit-scrollbar-thumb { background: #333; }
+
+  .sidebar-logo {
+    padding: 28px 20px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    flex-shrink: 0;
+  }
+  .logo-mark {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  /* Stashdash logomark — lightning bolt in circle */
+  .logo-icon {
+    width: 32px; height: 32px;
+    background: var(--white);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .logo-wordmark {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .logo-sub {
+    font-size: 10px;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 2px;
+  }
+
+  .nav-group-label {
+    padding: 18px 20px 6px;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.25);
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 20px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: all 0.12s;
+    border-left: 2px solid transparent;
+    letter-spacing: 0.01em;
+  }
+  .nav-link:hover { color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.04); }
+  .nav-link.active {
+    color: #ffffff;
+    border-left-color: #ffffff;
+    background: rgba(255,255,255,0.07);
+    font-weight: 600;
+  }
+  .nav-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.4;
+    flex-shrink: 0;
+  }
+  .nav-link.active .nav-dot { opacity: 1; }
+
+  /* ── MAIN ─────────────────────────────────────────────────── */
+  #main { margin-left: 252px; min-height: 100vh; }
+
+  .page { display: none; min-height: 100vh; }
+  .page.active { display: block; }
+
+  /* ── COVER ────────────────────────────────────────────────── */
+  .cover-wrap {
+    background: var(--black);
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+  }
+  .cover-body {
+    padding: 64px 64px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+  }
+  /* Big diagonal text watermark */
+  .cover-body::before {
+    content: 'SD';
+    position: absolute;
+    right: -60px; top: -40px;
+    font-size: 320px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.03);
+    line-height: 1;
+    pointer-events: none;
+    letter-spacing: -20px;
+    user-select: none;
+  }
+
+  .cover-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 32px;
+  }
+
+  /* Big SVG logo on cover */
+  .cover-logo-block { margin-bottom: 24px; }
+
+  .cover-divider {
+    width: 40px; height: 2px;
+    background: rgba(255,255,255,0.3);
+    margin: 24px 0;
+  }
+
+  .cover-mission {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    max-width: 480px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  .cover-meta-row {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 56px;
+  }
+  .cover-meta-item { display: flex; flex-direction: column; gap: 3px; }
+  .cover-meta-label {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.25);
+  }
+  .cover-meta-value {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .cover-values {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 8px;
+  }
+  .value-card {
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.03);
+  }
+  .value-card-name {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 4px;
+  }
+  .value-card-desc {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.5;
+  }
+
+  .cover-footer {
+    padding: 20px 64px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+  }
+
+  /* ── PAGE HEADER ─────────────────────────────────────────── */
+  .page-header {
+    background: var(--black);
+    padding: 48px 56px 36px;
+    position: relative;
+  }
+  .page-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.15), transparent 60%);
+  }
+  .page-eyebrow {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 8px;
+  }
+  .page-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+  }
+  .page-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 10px;
+    max-width: 580px;
+    line-height: 1.65;
+  }
+
+  .page-content {
+    padding: 40px 56px 64px;
+    max-width: 860px;
+  }
+
+  /* ── SECTION LABEL ───────────────────────────────────────── */
+  .section-label {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin: 36px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-label:first-child { margin-top: 0; }
+
+  /* ── POLICY TITLE ────────────────────────────────────────── */
+  .policy-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--black);
+    letter-spacing: -0.2px;
+    margin: 32px 0 10px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+  }
+  .policy-title:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+
+  p { margin-bottom: 12px; color: var(--dim); font-size: 13.5px; line-height: 1.75; }
+  p:last-child { margin-bottom: 0; }
+  p strong { color: var(--off-black); font-weight: 600; }
+
+  /* ── CALLOUT BOXES ───────────────────────────────────────── */
+  .highlight-box {
+    background: var(--black);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin: 20px 0;
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    line-height: 1.7;
+    border-left: 3px solid rgba(255,255,255,0.3);
+  }
+  .highlight-box strong { color: rgba(255,255,255,0.9); }
+
+  .alert-box {
+    background: var(--red-bg);
+    border: 1px solid #FCA5A5;
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin: 18px 0;
+  }
+  .alert-box-title {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--red);
+    margin-bottom: 6px;
+  }
+  .alert-box p { color: #7F1D1D; font-size: 13px; margin-bottom: 4px; }
+
+  .info-box {
+    background: var(--light);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin: 18px 0;
+  }
+  .info-box p { color: var(--mid); font-size: 13px; margin-bottom: 4px; }
+
+  .amber-box {
+    background: var(--amber-bg);
+    border: 1px solid #FDE68A;
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin: 18px 0;
+  }
+  .amber-box p { color: #78350F; font-size: 13px; margin-bottom: 4px; }
+
+  /* ── POLICY LIST ─────────────────────────────────────────── */
+  .policy-list { list-style: none; padding: 0; margin: 10px 0; }
+  .policy-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13.5px;
+    color: var(--dim);
+    line-height: 1.6;
+  }
+  .policy-list li:last-child { border-bottom: none; }
+  .list-bullet {
+    width: 20px; height: 20px;
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 800;
+    margin-top: 1px;
+  }
+  .bullet-check { background: var(--black); color: var(--white); }
+  .bullet-x     { background: var(--red-bg); color: var(--red); }
+  .bullet-arrow { background: var(--light); color: var(--dim); }
+  .bullet-num   { background: var(--black); color: var(--white); }
+
+  /* ── CARDS GRID ──────────────────────────────────────────── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 10px;
+    margin: 16px 0;
+  }
+  .info-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+  }
+  .info-card-icon {
+    width: 32px; height: 32px;
+    border-radius: var(--radius);
+    background: var(--light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .info-card-title { font-size: 12.5px; font-weight: 700; color: var(--off-black); margin-bottom: 4px; }
+  .info-card-body  { font-size: 12px; color: var(--subtle); line-height: 1.5; }
+
+  /* ── TWO-COL ─────────────────────────────────────────────── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0; }
+  @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+
+  .mini-card {
+    background: var(--light);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+  }
+  .mini-card-label {
+    font-size: 9px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--subtle); margin-bottom: 4px;
+  }
+  .mini-card-value { font-size: 13px; color: var(--off-black); line-height: 1.5; }
+
+  /* ── NON-NEG STRIP ───────────────────────────────────────── */
+  .non-neg-strip {
+    background: var(--black);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    margin: 20px 0;
+  }
+  .non-neg-strip-title {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 14px;
+  }
+  .non-neg-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+  }
+  .non-neg-item:last-child { border-bottom: none; }
+  .non-neg-icon {
+    width: 20px; height: 20px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.7);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 800;
+    flex-shrink: 0; margin-top: 1px;
+  }
+
+  /* ── CALL GRID ───────────────────────────────────────────── */
+  .call-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 20px 0; }
+  @media (max-width: 600px) { .call-grid { grid-template-columns: 1fr; } }
+  .call-pane { border-radius: var(--radius); padding: 16px; }
+  .call-pane.danger { background: var(--red-bg); border: 1px solid #FCA5A5; }
+  .call-pane.neutral { background: var(--light); border: 1px solid var(--border); }
+  .call-pane-title { font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+  .call-pane.danger .call-pane-title { color: var(--red); }
+  .call-pane.neutral .call-pane-title { color: var(--off-black); }
+  .call-item {
+    font-size: 12.5px; padding: 5px 0;
+    border-bottom: 1px solid;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .call-pane.danger .call-item { border-color: #FCA5A5; color: #7F1D1D; }
+  .call-pane.neutral .call-item { border-color: var(--border); color: var(--dim); }
+  .call-item:last-child { border-bottom: none; }
+
+  /* ── SCENARIO ────────────────────────────────────────────── */
+  .scenario {
+    background: var(--light);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--black);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 13px;
+    color: var(--dim);
+    line-height: 1.7;
+  }
+  .scenario strong { color: var(--off-black); font-weight: 700; }
+
+  /* ── DISCIPLINE TRACK ────────────────────────────────────── */
+  .disc-track { display: flex; gap: 4px; margin: 16px 0 20px; flex-wrap: wrap; }
+  .disc-step {
+    flex: 1; min-width: 90px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px;
+    text-align: center;
+    position: relative;
+  }
+  .disc-step::after {
+    content: '→';
+    position: absolute; right: -10px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 11px; color: var(--border); z-index: 1;
+  }
+  .disc-step:last-child::after { display: none; }
+  .disc-num { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--subtle); margin-bottom: 3px; }
+  .disc-name { font-size: 12px; font-weight: 700; color: var(--off-black); }
+  .disc-step.s1 { border-top: 3px solid #22C55E; }
+  .disc-step.s2 { border-top: 3px solid var(--amber); }
+  .disc-step.s3 { border-top: 3px solid var(--red); }
+  .disc-step.s4 { border-top: 3px solid var(--black); }
+
+  /* ── BREAK TABLE ─────────────────────────────────────────── */
+  .break-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13px; }
+  .break-table th { background: var(--black); color: rgba(255,255,255,0.7); padding: 10px 14px; text-align: left; font-size: 11px; font-weight: 700; }
+  .break-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--dim); }
+  .break-table tr:last-child td { border-bottom: none; }
+  .break-count {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--black); color: var(--white);
+    font-weight: 800; font-size: 14px;
+    width: 26px; height: 26px; border-radius: 50%;
+  }
+
+  /* ── PAGE FOOTER ─────────────────────────────────────────── */
+  .page-footer {
+    margin-top: 48px;
+    padding: 20px 56px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--subtle);
+  }
+
+  /* ── MOBILE ──────────────────────────────────────────────── */
+  #mob-toggle {
+    display: none;
+    position: fixed; top: 14px; left: 14px;
+    z-index: 200;
+    background: var(--black); color: var(--white);
+    border: none; border-radius: var(--radius);
+    width: 36px; height: 36px;
+    font-size: 16px; cursor: pointer;
+    align-items: center; justify-content: center;
+  }
+  @media (max-width: 800px) {
+    #mob-toggle { display: flex; }
+    #sidebar { transform: translateX(-100%); transition: transform 0.2s; }
+    #sidebar.open { transform: translateX(0); }
+    #main { margin-left: 0; }
+    .page-header { padding: 32px 24px 24px; }
+    .page-content { padding: 24px; }
+    .cover-body { padding: 48px 28px 32px; }
+    .cover-footer { padding: 16px 28px; }
+    .call-grid { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+  }
+  @media print {
+    #sidebar, #mob-toggle { display: none; }
+    #main { margin-left: 0; }
+    .page { display: block !important; break-after: page; }
+  }
+
+  /* ── TRAINING VIDEOS ─────────────────────────────────────── */
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    margin: 16px 0 32px;
+  }
+  .video-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.15s, transform 0.15s;
+    cursor: pointer;
+  }
+  .video-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+    transform: translateY(-2px);
+  }
+  .video-thumb {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--dark);
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .video-thumb img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  /* Placeholder thumb when no image */
+  .video-thumb-placeholder {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+  }
+  .video-thumb-placeholder .thumb-logo {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+  }
+  /* Play button overlay on both real and placeholder thumbs */
+  .play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.25);
+    transition: background 0.15s;
+  }
+  .video-card:hover .play-overlay { background: rgba(0,0,0,0.45); }
+  .play-btn {
+    width: 44px; height: 44px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.15s;
+  }
+  .video-card:hover .play-btn { transform: scale(1.1); }
+  .play-btn svg { margin-left: 3px; }
+  /* Duration badge */
+  .video-duration {
+    position: absolute;
+    bottom: 8px; right: 8px;
+    background: rgba(0,0,0,0.75);
+    color: rgba(255,255,255,0.9);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 3px;
+    letter-spacing: 0.04em;
+  }
+  .video-info {
+    padding: 14px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+  }
+  .video-tag {
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--subtle);
+  }
+  .video-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--off-black);
+    line-height: 1.4;
+  }
+  .video-desc {
+    font-size: 12px;
+    color: var(--subtle);
+    line-height: 1.5;
+    margin-top: 2px;
+  }
+  .video-link-label {
+    margin-top: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--off-black);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .video-link-label svg { opacity: 0.5; }
+  /* Placeholder "add link" card */
+  .video-card.placeholder {
+    border-style: dashed;
+    border-color: var(--border);
+    opacity: 0.65;
+  }
+  .video-card.placeholder:hover { opacity: 1; }
+  /* Category section within the page */
+  .video-category {
+    margin-bottom: 40px;
+  }
+  .video-category-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .video-category-icon {
+    width: 32px; height: 32px;
+    background: var(--black);
+    border-radius: var(--radius);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .video-category-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--off-black);
+  }
+  .video-category-count {
+    font-size: 11px;
+    color: var(--subtle);
+    background: var(--light);
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-left: auto;
+  }
+  /* How to use banner */
+  .videos-intro {
+    background: var(--black);
+    border-radius: var(--radius-lg);
+    padding: 20px 24px;
+    margin-bottom: 36px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .videos-intro-icon {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .videos-intro-text { flex: 1; }
+  .videos-intro-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 4px;
+  }
+  .videos-intro-body {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<button id="mob-toggle" onclick="toggleSidebar()">☰</button>
+
+<!-- ══════════════════════════════════════════════════════════
+     SIDEBAR
+══════════════════════════════════════════════════════════ -->
+<nav id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-mark">
+      <div class="logo-icon">
+        <!-- Stashdash lightning bolt logomark -->
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="12,2 5,11 10,11 8,18 15,9 10,9" fill="#000000"/>
+        </svg>
+      </div>
+      <span class="logo-wordmark">Stashdash</span>
+    </div>
+    <div class="logo-sub">Delivery · Employee Handbook</div>
+  </div>
+
+  <div class="nav-group-label">Getting Started</div>
+  <a class="nav-link active" href="#" onclick="show('cover',this)"><span class="nav-dot"></span>Welcome</a>
+  <a class="nav-link" href="#" onclick="show('toc',this)"><span class="nav-dot"></span>Table of Contents</a>
+
+  <div class="nav-group-label">Workplace Policies</div>
+  <a class="nav-link" href="#" onclick="show('relations',this)"><span class="nav-dot"></span>Employee Relations</a>
+  <a class="nav-link" href="#" onclick="show('conduct',this)"><span class="nav-dot"></span>Code of Conduct</a>
+  <a class="nav-link" href="#" onclick="show('discipline',this)"><span class="nav-dot"></span>Discipline & Attendance</a>
+  <a class="nav-link" href="#" onclick="show('dress',this)"><span class="nav-dot"></span>Dress Code & ID Badge</a>
+
+  <div class="nav-group-label">Delivery Operations</div>
+  <a class="nav-link" href="#" onclick="show('safety',this)"><span class="nav-dot"></span>Driver Safety</a>
+  <a class="nav-link" href="#" onclick="show('compliance',this)"><span class="nav-dot"></span>Age Verification</a>
+  <a class="nav-link" href="#" onclick="show('product',this)"><span class="nav-dot"></span>Product Security</a>
+  <a class="nav-link" href="#" onclick="show('cash',this)"><span class="nav-dot"></span>Cash & Robbery Response</a>
+  <a class="nav-link" href="#" onclick="show('professionalism',this)"><span class="nav-dot"></span>Professionalism</a>
+
+  <div class="nav-group-label">Safety & Security</div>
+  <a class="nav-link" href="#" onclick="show('workplace',this)"><span class="nav-dot"></span>Workplace Safety</a>
+  <a class="nav-link" href="#" onclick="show('drugs',this)"><span class="nav-dot"></span>Alcohol, Drugs & Smoking</a>
+  <a class="nav-link" href="#" onclick="show('tech',this)"><span class="nav-dot"></span>Technology & Social Media</a>
+
+  <div class="nav-group-label">Employment</div>
+  <a class="nav-link" href="#" onclick="show('terms',this)"><span class="nav-dot"></span>Employment Terms</a>
+  <a class="nav-link" href="#" onclick="show('payroll',this)"><span class="nav-dot"></span>Timekeeping & Payroll</a>
+
+  <div class="nav-group-label">Training</div>
+  <a class="nav-link" href="#" onclick="show('videos',this)"><span class="nav-dot"></span>Training Videos</a>
+</nav>
+
+<main id="main">
+
+<!-- ══════ COVER ══════ -->
+<div id="page-cover" class="page active">
+  <div class="cover-wrap">
+    <div class="cover-body">
+      <div class="cover-eyebrow">Est. 2026 &nbsp;·&nbsp; California &nbsp;·&nbsp; Employee Handbook</div>
+
+      <div class="cover-logo-block">
+        <!-- Full-size cover logo -->
+        <svg viewBox="0 0 560 90" xmlns="http://www.w3.org/2000/svg" style="width:min(520px,82vw);height:auto;display:block;">
+          <!-- Lightning bolt icon -->
+          <rect x="0" y="8" width="72" height="72" rx="10" fill="#ffffff"/>
+          <polygon points="44,16 24,46 38,46 28,72 52,42 38,42" fill="#000000"/>
+          <!-- Wordmark -->
+          <text x="90" y="72" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-weight="800" font-size="68" fill="#ffffff" letter-spacing="-2">STASHDASH</text>
+        </svg>
+        <div style="font-size:13px;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:14px;">DELIVERY</div>
+      </div>
+
+      <div class="cover-divider"></div>
+
+      <p class="cover-mission">Our mission is to provide safe, professional, and fully compliant cannabis delivery services putting our customers and our team first, every single time.</p>
+
+      <div class="cover-meta-row">
+        <div class="cover-meta-item"><span class="cover-meta-label">Document</span><span class="cover-meta-value">Employee Handbook</span></div>
+        <div class="cover-meta-item"><span class="cover-meta-label">Effective</span><span class="cover-meta-value">2026</span></div>
+        <div class="cover-meta-item"><span class="cover-meta-label">Jurisdiction</span><span class="cover-meta-value">California</span></div>
+      </div>
+
+      <div class="cover-values">
+        <div class="value-card"><div class="value-card-name">Influence</div><div class="value-card-desc">Motivate desired actions by modeling the right way</div></div>
+        <div class="value-card"><div class="value-card-name">Inspire</div><div class="value-card-desc">Empower others through teamwork, accountability & trust</div></div>
+        <div class="value-card"><div class="value-card-name">Grow</div><div class="value-card-desc">Stay humble and curious, while growing professionally along others with the grind mind</div></div>
+      </div>
+    </div>
+    <div class="cover-footer">
+      <span>© 2026 Stashdash Delivery. All rights reserved.</span>
+      <span>Handbook v1.0 · 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ TABLE OF CONTENTS ══════ -->
+<div id="page-toc" class="page">
+  <div class="page-header">
+    <div class="page-eyebrow">Navigation</div>
+    <h2 class="page-title">Table of Contents</h2>
+    <p class="page-desc">Everything you need to know about working at Stashdash Delivery, organized for quick reference.</p>
+  </div>
+  <div class="page-content">
+    <div class="section-label">Workplace Policies</div>
+    <ul class="policy-list">
+      <li><span class="list-bullet bullet-arrow">→</span><span><strong>Employee Relations</strong> — Equal opportunity, anti-harassment, anti-discrimination, accommodations</span></li>
+      <li><span class="list-bullet bullet-arrow">→</span><span><strong>Code of Conduct & Ethics</strong> — Professionalism, conflicts of interest, reporting obligations</span></li>
+      <li><span class="list-bullet bullet-arrow">→</span><span><strong>Discipline & Attendance</strong> — Progressive discipline model, attendance policy, call-in procedures</span></li>
+      <li><span class="list-bullet bullet-arrow">→</span><span><strong>Dress Code & ID Badge</strong> — Appearance standards, uniform requirements, ID badge policy</span></li>
+    </ul>
+    <div class="section-label">Delivery Operations</div>
+    <ul class="policy-list">
+      <li><span class="list-bullet bullet-check">✓</span><span><strong>Driver Safety</strong> — Vehicle positioning, high-risk situations, staying alert on the road</span></li>
+      <li><span class="list-bullet bullet-check">✓</span><span><strong>Age Verification & Compliance</strong> — ID checks, legal requirements, delivery procedures</span></li>
+      <li><span class="list-bullet bullet-check">✓</span><span><strong>Product Security</strong> — Concealment, chain of custody, vehicle security</span></li>
+      <li><span class="list-bullet bullet-check">✓</span><span><strong>Cash & Robbery Response</strong> — Cash handling, robbery protocol, who to call</span></li>
+      <li><span class="list-bullet bullet-check">✓</span><span><strong>Professionalism</strong> — Customer interaction, what not to discuss, technology use</span></li>
+    </ul>
+    <div class="section-label">Safety & Security</div>
+    <ul class="policy-list">
+      <li><span class="list-bullet bullet-arrow">→</span><span><strong>Workplace Safety</strong> — Safety policy, weapons, workplace violence, theft</span></li>
+      <li><span class="list-bullet bullet-arrow">→</span><span><strong>Alcohol, Drugs & Smoking</strong> — Substance policy, testing, prescription disclosures</span></li>
+      <li><span class="list-bullet bullet-arrow">→</span><span><strong>Technology & Social Media</strong> — Device usage, personal devices, social media guidelines</span></li>
+    </ul>
+    <div class="section-label">Employment</div>
+    <ul class="policy-list">
+      <li><span class="list-bullet bullet-arrow">→</span><span><strong>Employment Terms</strong> — Introductory period, at-will statement, background screening</span></li>
+      <li><span class="list-bullet bullet-arrow">→</span><span><strong>Timekeeping & Payroll</strong> — Timekeeping rules, breaks, overtime</span></li>
+    </ul>
+    <div class="highlight-box"><strong>A note from management:</strong> If you are uncertain about any policy or procedure, please check with your manager or Human Resources. This handbook is a summary — the Company retains the right to modify policies at any time. Nothing in this document creates a promise of continued employment.</div>
+  </div>
+</div>
+
+<!-- ══════ EMPLOYEE RELATIONS ══════ -->
+<div id="page-relations" class="page">
+  <div class="page-header">
+    <div class="page-eyebrow">Section 1</div>
+    <h2 class="page-title">Employee Relations</h2>
+    <p class="page-desc">We're committed to fostering an outstanding relationship with every member of our team.</p>
+  </div>
+  <div class="page-content">
+    <div class="policy-title">Equal Employment Opportunity</div>
+    <p>Stashdash Delivery is committed to equal employment opportunities for all employees and applicants without regard to race, ethnicity, religion, color, sex, gender identity, sexual orientation, national origin, ancestry, age, disability, pregnancy, marital status, veteran status, or any other protected characteristic under applicable federal, state, and local laws.</p>
+    <p>This policy extends to all aspects of employment: recruiting, hiring, discipline, termination, promotions, transfers, compensation, benefits, training, and all other terms and conditions of employment.</p>
+
+    <div class="policy-title">Anti-Harassment & Discrimination</div>
+    <p>The Company is committed to maintaining a safe and respectful workplace free from unlawful harassment, discrimination, bullying, gossip, and retaliation. This policy applies to the workplace, employer-sponsored events, and social media.</p>
+    <p><strong>Harassment includes:</strong> verbal abuse, slurs, jokes, or ridicule based on protected characteristics; unwelcome sexual advances; physical conduct of a threatening or humiliating nature; distribution of offensive graphic material.</p>
+    <div class="alert-box">
+      <div class="alert-box-title">⚠ Zero Tolerance</div>
+      <p>Any employee found to have violated this policy will be subject to discipline, up to and including termination. This includes supervisors and managers.</p>
+    </div>
+
+    <div class="policy-title">Reasonable Accommodations</div>
+    <p>The Company will provide reasonable accommodations for known physical or mental disabilities and for employees' sincerely held religious beliefs and practices, provided the accommodation does not create undue hardship or a direct safety threat. Notify Human Resources to begin the interactive accommodation process.</p>
+
+    <div class="policy-title">Lactation Accommodations</div>
+    <p>Employees have the right to request accommodations to express breast milk. The Company will provide reasonable break time and a private, sanitary space near the employee's work area. Non-exempt employees should clock out for lactation breaks that don't coincide with scheduled meal or rest periods.</p>
+  </div>
+  <div class="page-footer"><span>Stashdash Delivery Employee Handbook</span><span>Employee Relations</span></div>
+</div>
+
+<!-- ══════ CODE OF CONDUCT ══════ -->
+<div id="page-conduct" class="page">
+  <div class="page-header">
+    <div class="page-eyebrow">Section 2</div>
+    <h2 class="page-title">Code of Conduct & Ethics</h2>
+    <p class="page-desc">We all deserve to work in an environment of dignity and respect. Every employee is expected to uphold these standards.</p>
+  </div>
+  <div class="page-content">
+    <div class="policy-title">Ethical Business Practices</div>
+    <p>Employees must uphold the highest standards of integrity and honesty in all business interactions. This means truthfulness, transparency, and sound ethical decision-making. You must promptly disclose any potential conflicts of interest that could compromise the Company's integrity.</p>
+    <div class="alert-box">
+      <div class="alert-box-title">⚠ Immediate Termination Offenses</div>
+      <p>Providing false, dishonest, or misleading information on any Company document, application, time entry, or to any customer, vendor, or colleague.</p>
+      <p>Engaging in any illegal activity while on duty, on Company property, or off-duty conduct that reflects negatively on the Company.</p>
+    </div>
+
+    <div class="policy-title">Professionalism</div>
+    <p>All employees are expected to conduct themselves with the highest degree of professionalism — respectful and courteous demeanor, appropriate language, and proper handling of confidential information. Rudeness, profanity, or disruptive conduct will not be tolerated.</p>
+
+    <div class="policy-title">Conflicts of Interest</div>
+    <p>Employees are prohibited from engaging in any business that competes with the Company, or holding a financial interest in a competitor. If you believe your outside activities may create a conflict, notify Human Resources immediately.</p>
+
+    <div class="policy-title">Anti-Fraternization</div>
+    <p>No person in a management or supervisory position may have a romantic relationship with an employee they directly supervise. Employees in the same department should also avoid such relationships. If a relationship develops, it must be immediately disclosed to HR.</p>
+
+    <div class="policy-title">Company Events Conduct</div>
+    <p>At all Company-sponsored events, employees must stay with their team, maintain professional conduct, and adhere to all Company policies. Employees are strictly prohibited from driving after consuming any alcohol at a Company event — a designated driver or rideshare is required.</p>
+
+    <div class="policy-title">Internal Promotions</div>
+    <p>Promotions are based on performance, conduct, and role requirements. To be eligible, employees must have a satisfactory performance record and no disciplinary actions in the preceding 6 months. No promotion will be based on favoritism, nepotism, fraternization, or discrimination.</p>
+  </div>
+  <div class="page-footer"><span>Stashdash Delivery Employee Handbook</span><span>Code of Conduct</span></div>
+</div>
+
+<!-- ══════ DISCIPLINE & ATTENDANCE ══════ -->
+<div id="page-discipline" class="page">
+  <div class="page-header">
+    <div class="page-eyebrow">Section 3</div>
+    <h2 class="page-title">Discipline & Attendance</h2>
+    <p class="page-desc">Clear standards, fair process. The Company uses a progressive discipline model designed to help employees correct issues and improve.</p>
+  </div>
+  <div class="page-content">
+    <div class="section-label">Progressive Discipline Model</div>
+    <p>Each category — attendance, performance, and misconduct — progresses through its own separate disciplinary track. The Company reserves the right to skip steps based on severity.</p>
+    <div class="disc-track">
+      <div class="disc-step s1"><div class="disc-num">Level 1</div><div class="disc-name">Verbal Warning</div></div>
+      <div class="disc-step s2"><div class="disc-num">Level 2</div><div class="disc-name">Written Warning</div></div>
+      <div class="disc-step s3"><div class="disc-num">Level 3</div><div class="disc-name">Final Warning</div></div>
+      <div class="disc-step s4"><div class="disc-num">Level 4</div><div class="disc-name">Termination</div></div>
+    </div>
+    <div class="highlight-box"><strong>Introductory Period (first 90 days):</strong> The discipline track is accelerated — Written Warning → Final Warning → Termination. Employees within the introductory period are held to a higher standard and may be released at any time.</div>
+
+    <div class="section-label">Attendance Definitions</div>
+    <div class="two-col">
+      <div class="mini-card"><div class="mini-card-label">Absence</div><div class="mini-card-value">1 unexcused, unprotected absence = 1 occurrence</div></div>
+      <div class="mini-card"><div class="mini-card-label">Tardy</div><div class="mini-card-value">2 tardies = 1 occurrence. Clocking in after your scheduled start time.</div></div>
+      <div class="mini-card"><div class="mini-card-label">Early Departure</div><div class="mini-card-value">2 unexcused early departures = 1 occurrence</div></div>
+      <div class="mini-card"><div class="mini-card-label">No Call No Show</div><div class="mini-card-value">Failure to communicate about a missed shift. Treated as a serious violation.</div></div>
+    </div>
+
+    <div class="policy-title">Call-In Procedure</div>
+    <p>If you will be absent or tardy, call your on-duty manager or use the call-out line at least <strong>3 hours before your shift</strong>. Failure to follow this procedure may result in disciplinary action.</p>
+
+    <div class="policy-title">Job Abandonment</div>
+    <p>Failing to report to work for 3 or more consecutive scheduled shifts without notifying management will be considered voluntary resignation.</p>
+
+    <div class="policy-title">Misconduct — Immediate Termination Examples</div>
+    <ul class="policy-list">
+      <li><span class="list-bullet bullet-x">✕</span>Theft or fraud</li>
+      <li><span class="list-bullet bullet-x">✕</span>Physical violence or threats of violence</li>
+      <li><span class="list-bullet bullet-x">✕</span>Insubordination</li>
+      <li><span class="list-bullet bullet-x">✕</span>Harassment or discrimination</li>
+      <li><span class="list-bullet bullet-x">✕</span>Delivering cannabis to an underage customer</li>
+      <li><span class="list-bullet bullet-x">✕</span>Unauthorized sharing of Company IP or confidential information</li>
+      <li><span class="list-bullet bullet-x">✕</span>Falsifying time records or Company documents</li>
+    </ul>
+  </div>
+  <div class="page-footer"><span>Stashdash Delivery Employee Handbook</span><span>Discipline & Attendance</span></div>
+</div>
+
+<!-- ══════ DRESS CODE ══════ -->
+<div id="page-dress" class="page">
+  <div class="page-header">
+    <div class="page-eyebrow">Section 4</div>
+    <h2 class="page-title">Dress Code & ID Badge</h2>
+    <p class="page-desc">Your appearance is your first impression. Represent Stashdash Delivery with pride.</p>
+  </div>
+  <div class="page-content">
+    <div class="section-label">Appearance Standards</div>
+    <ul class="policy-list">
+      <li><span class="list-bullet bullet-check">✓</span>Maintain good personal hygiene and a neat, professional appearance at all times</li>
+      <li><span class="list-bullet bullet-check">✓</span>Facial hair must be neat and trimmed. Full beards must be well-groomed.</li>
+      <li><span class="list-bullet bullet-check">✓</span>Multiple earrings and facial piercings are permitted, provided they don't present a safety risk</li>
+      <li><span class="list-bullet bullet-check">✓</span>If issued a Company uniform, wear it clean and in good condition at all times while on duty</li>
+      <li><span class="list-bullet bullet-x">✕</span>Visible tattoos that are offensive or lewd must be covered</li>
+      <li><span class="list-bullet bullet-x">✕</span>Ill-fitted, see-through, revealing, provocative, or offensive clothing</li>
+      <li><span class="list-bullet bullet-x">✕</span>Loungewear: sweats, tracksuits, pajamas, slides, or flip flops</li>
+      <li><span class="list-bullet bullet-x">✕</span>Clothing featuring competitor logos or non-prescription tinted eyewear</li>
+    </ul>
+    <div class="amber-box"><p><strong>Unacceptable attire:</strong> Employees who report to work in unacceptable attire may be required to leave and return in appropriate clothing. This time away is unpaid and may result in disciplinary action.</p></div>
+
+    <div class="policy-title">ID Badge Policy</div>
+    <p>All employees are issued a Company ID Badge following orientation. The ID Badge is required by State licensing and serves as your electronic key for secured areas. <strong>You must wear your ID Badge in plain view at all times while on Company premises.</strong></p>
+    <ul class="policy-list">
+      <li><span class="list-bullet bullet-arrow">→</span>No ID Badge? You will receive a temporary visitor's badge that must be returned upon exit</li>
+      <li><span class="list-bullet bullet-arrow">→</span>Lost or stolen badge? Report to security and management immediately</li>
+      <li><span class="list-bullet bullet-x">✕</span>Never loan your badge to anyone for any reason</li>
+      <li><span class="list-bullet bullet-x">✕</span>Failure to wear your badge or excessive loss/damage can result in disciplinary action</li>
+      <li><span class="list-bullet bullet-arrow">→</span>Return your badge to HR upon separation from the Company</li>
+    </ul>
+  </div>
+  <div class="page-footer"><span>Stashdash Delivery Employee Handbook</span><span>Dress Code & ID Badge</span></div>
+</div>
+
+<!-- ══════ DRIVER SAFETY ══════ -->
+<div id="page-safety" class="page">
+  <div class="page-header">
+    <div class="page-eyebrow">Delivery Operations · Section 1</div>
+    <h2 class="page-title">Driver Safety</h2>
+    <p class="page-desc">Your safety is the top priority always. No delivery, no product, no amount of cash is worth compromising it.</p>
+  </div>
+  <div class="page-content">
+    <div class="non-neg-strip">
+      <div class="non-neg-strip-title">Non-Negotiable Safety Rules</div>
+      <div class="non-neg-item"><div class="non-neg-icon">!</div>Never enter a customer's residence for any reason</div>
+      <div class="non-neg-item"><div class="non-neg-icon">!</div>Never follow a customer into a garage, backyard, or secluded space</div>
+      <div class="non-neg-item"><div class="non-neg-icon">!</div>Never leave your vehicle if multiple unknown individuals approach</div>
+      <div class="non-neg-item"><div class="non-neg-icon">!</div>If a situation feels unsafe — leave immediately and call your POC</div>
+      <div class="non-neg-item"><div class="non-neg-icon">!</div>Personal safety always takes priority over product or cash</div>
+    </div>
+
+    <div class="section-label">Vehicle Positioning</div>
+    <div class="cards-grid">
+      <div class="info-card"><div class="info-card-icon">⊙</div><div class="info-card-title">Park passenger-side facing the delivery</div><div class="info-card-body">Shorter exposure distance from vehicle to the door.</div></div>
+      <div class="info-card"><div class="info-card-icon">↑</div><div class="info-card-title">Plan your exit before you get out</div><div class="info-card-body">Avoid positions that require backing into traffic to leave.</div></div>
+      <div class="info-card"><div class="info-card-icon">◎</div><div class="info-card-title">Well-lit, visible areas only</div><div class="info-card-body">No dark alleys, dead ends, or tight spots you can't easily leave.</div></div>
+      <div class="info-card"><div class="info-card-icon" style="background:var(--red-bg);">⊘</div><div class="info-card-title">Never block driveways or fire lanes</div><div class="info-card-body">Stay clear of traffic. Keep space to pull away fast.</div></div>
+    </div>
+
+    <div class="section-label">Stay Alert</div>
+    <ul class="policy-list">
+      <li><span class="list-bullet bullet-check">✓</span>Scan the full area before exiting the vehicle — every single time</li>
+      <li><span class="list-bullet bullet-check">✓</span>Be aware of anyone loitering nearby before you approach</li>
+      <li><span class="list-bullet bullet-check">✓</span>Trust your instincts — if something feels wrong, it probably is. Leave and call your POC.</li>
+      <li><span class="list-bullet bullet-x">✕</span>No headphones during deliveries — you need full situational awareness</li>
+      <li><span class="list-bullet bullet-x">✕</span>No prolonged phone use outside the vehicle</li>
+    </ul>
+
+    <div class="scenario"><strong>Scenario:</strong> You arrive at a delivery address. Two people you don't recognize are standing near the door and start walking toward your vehicle.<br><br><strong>Answer:</strong> Do not exit the vehicle. Secure the product, lock the doors, and drive away. Call your POC immediately. Your safety cannot be replaced — this delivery can be rescheduled.</div>
+
+    <div class="section-label">When to Call Who</div>
+    <div class="call-grid">
+      <div class="call-pane danger">
+        <div class="call-pane-title">Call 911</div>
+        <div class="call-item">🚨 Vehicle accidents</div>
+        <div class="call-item">🚨 Robbery with a threat or weapon</div>
+        <div class="call-item">🚨 Medical emergency requiring ambulance</div>
+      </div>
+      <div class="call-pane neutral">
+        <div class="call-pane-title">Call Your POC</div>
+        <div class="call-item">📞 Vehicle accidents (also call 911)</div>
+        <div class="call-item">📞 Suspicious customers or activity</div>
+        <div class="call-item">📞 Product discrepancies</div>
+        <div class="call-item">📞 Robbery attempts</div>
+        <div class="call-item">📞 Law enforcement interactions</div>
+        <div class="call-item">📞 Device failures</div>
+        <div class="call-item">📞 Medical emergencies</div>
+      </div>
+    </div>
+
+    <div class="policy-title">Company Vehicles & Safe Driving</div>
+    <p>You must hold a valid state driver's license for the class of vehicle you are driving. Seatbelts are mandatory for all persons in Company vehicles at all times. Never use a Company vehicle while under the influence of any substance.</p>
+    <div class="alert-box">
+      <div class="alert-box-title">⚠ DUI / Reckless Driving</div>
+      <p>Any employee convicted of DUI/DWI or reckless driving while operating a Company vehicle will be considered to have an unacceptable driving record and continued employment will be subject to review.</p>
+    </div>
+  </div>
+  <div class="page-footer"><span>Stashdash Delivery Employee Handbook</span><span>Driver Safety</span></div>
+</div>
+
+<!-- ══════ AGE VERIFICATION ══════ -->
+<div id="page-compliance" class="page">
+  <div class="page-header">
+    <div class="page-eyebrow">Delivery Operations · Section 2</div>
+    <h2 class="page-title">Age Verification & Compliance</h2>
+    <p class="page-desc">California law is clear. These rules are non-negotiable — there are no exceptions, no matter how many times you've delivered to that customer.</p>
+  </div>
+  <div class="page-content">
+    <div class="non-neg-strip">
+      <div class="non-neg-strip-title">The Golden Rules — No Exceptions, Ever</div>
+      <div class="non-neg-item"><div class="non-neg-icon">✕</div>No valid government-issued ID = No delivery. Full stop.</div>
+      <div class="non-neg-item"><div class="non-neg-icon">✕</div>Expired ID = No delivery.</div>
+      <div class="non-neg-item"><div class="non-neg-icon">✕</div>Person doesn't match the ID = No delivery.</div>
+      <div class="non-neg-item"><div class="non-neg-icon">✕</div>Customer is under 21 = No delivery (unless specific medical regulations apply).</div>
+      <div class="non-neg-item"><div class="non-neg-icon">✕</div>Regular customer you've delivered to 100 times = Still check the ID.</div>
+    </div>
+
+    <div class="section-label">What to Verify on Every ID</div>
+    <div class="two-col">
+      <div class="mini-card"><div class="mini-card-label">Date of Birth</div><div class="mini-card-value">Customer must be 21 or older. Do the math — don't assume.</div></div>
+      <div class="mini-card"><div class="mini-card-label">Photo Match</div><div class="mini-card-value">Does the face in front of you match the ID photo? When in doubt, do not deliver.</div></div>
+      <div class="mini-card"><div class="mini-card-label">Expiration Date</div><div class="mini-card-value">Expired IDs are not valid — even expired by one day.</div></div>
+      <div class="mini-card"><div class="mini-card-label">Type of ID</div><div class="mini-card-value">Government-issued only: driver's license, passport, or state ID. No other forms accepted.</div></div>
+    </div>
+
+    <div class="scenario"><strong>Scenario:</strong> A regular customer answers the door. She's placed 30 orders. You recognize her. She can't find her ID.<br><br><strong>Answer:</strong> No delivery. Familiarity and order history do not matter. Apologize, explain the policy, and return the product per Company procedure. You will never be disciplined for following this rule.</div>
+
+    <div class="section-label">The Delivery Sequence</div>
+    <ul class="policy-list">
+      <li><span class="list-bullet bullet-num">1</span><span><strong>Before approaching:</strong> Confirm the address, review customer notes, ensure order is secured in approved bag</span></li>
+      <li><span class="list-bullet bullet-num">2</span><span><strong>At the door:</strong> Verify customer identity first — before presenting the product</span></li>
+      <li><span class="list-bullet bullet-num">3</span><span><strong>Complete compliance:</strong> Finish all required compliance steps before handing over anything</span></li>
+      <li><span class="list-bullet bullet-num">4</span><span><strong>Payment:</strong> Follow all payment procedures exactly</span></li>
+      <li><span class="list-bullet bullet-num">5</span><span><strong>Failed delivery:</strong> Do NOT leave product unattended. Do NOT leave it with neighbors, roommates, or family members who are not the verified customer. Return it.</span></li>
+    </ul>
+
+    <div class="scenario"><strong>Scenario:</strong> A customer's roommate answers the door. The actual customer stepped out. The roommate shows you their own valid ID and says they'll take the order.<br><br><strong>Answer:</strong> Do not deliver. The product can only be handed to the verified customer on the order — not anyone else, regardless of their own ID status. Take the product back.</div>
+  </div>
+  <div class="page-footer"><span>Stashdash Delivery Employee Handbook</span><span>Age Verification & Compliance</span></div>
+</div>
+
+<!-- ══════ PRODUCT SECURITY ══════ -->
+<div id="page-product" class="page">
+  <div class="page-header">
+    <div class="page-eyebrow">Delivery Operations · Section 3</div>
+    <h2 class="page-title">Product Security</h2>
+    <p class="page-desc">From the moment you leave the store, every product assigned to you is your responsibility. Concealment and chain of custody are non-negotiable.</p>
+  </div>
+  <div class="page-content">
+    <div class="section-label">Concealment Rules</div>
+    <ul class="policy-list">
+      <li><span class="list-bullet bullet-x">✕</span>Never place cannabis products on the front seat, dashboard, or passenger floorboard</li>
+      <li><span class="list-bullet bullet-x">✕</span>Never leave products visible to the public from outside the vehicle</li>
+      <li><span class="list-bullet bullet-x">✕</span>Never discuss delivery contents with anyone other than the verified customer</li>
+      <li><span class="list-bullet bullet-check">✓</span>Use only Company-approved locked bags, totes, or storage compartments</li>
+      <li><span class="list-bullet bullet-check">✓</span>Orders must remain concealed and secured at all times during transport</li>
+    </ul>
+
+    <div class="section-label">Vehicle Security</div>
+    <ul class="policy-list">
+      <li><span class="list-bullet bullet-check">✓</span>Lock the vehicle every single time you step away — even for 30 seconds</li>
+      <li><span class="list-bullet bullet-check">✓</span>Never leave products in an unlocked vehicle</li>
+      <li><span class="list-bullet bullet-check">✓</span>Verify your order contents before leaving the store or dispatch location</li>
+      <li><span class="list-bullet bullet-x">✕</span>Never leave cannabis products unattended under any circumstances</li>
+    </ul>
+
+    <div class="info-box"><p><strong>Chain of Custody:</strong> You are responsible for all products assigned to you from the moment you receive them until delivery is complete or the product is returned. Report any discrepancies immediately — do not wait until end of shift.</p></div>
+
+    <div class="scenario"><strong>Scenario:</strong> You're running multiple stops. After a quick handoff, you realize your bag is sitting on the front passenger seat in plain view as you drive to the next address.<br><br><strong>Answer:</strong> Pull over safely and transfer the product to your approved locked bag or storage compartment immediately before continuing. It takes 30 seconds — it's always worth it.</div>
+  </div>
+  <div class="page-footer"><span>Stashdash Delivery Employee Handbook</span><span>Product Security</span></div>
+</div>
+
+<!-- ══════ CASH & ROBBERY ══════ -->
+<div id="page-cash" class="page">
+  <div class="page-header">
+    <div class="page-eyebrow">Delivery Operations · Section 4</div>
+    <h2 class="page-title">Cash Handling & Robbery Response</h2>
+    <p class="page-desc">Product and cash can be replaced. You cannot. Always prioritize your safety above everything else.</p>
+  </div>
+  <div class="page-content">
+    <div class="section-label">Cash Security</div>
+    <ul class="policy-list">
+      <li><span class="list-bullet bullet-check">✓</span>Keep cash separated and secured at all times</li>
+      <li><span class="list-bullet bullet-check">✓</span>Count cash discreetly — never in public view</li>
+      <li><span class="list-bullet bullet-check">✓</span>Follow the Company's cash-limit policy</li>
+      <li><span class="list-bullet bullet-x">✕</span>Never display or flash large amounts of cash in public</li>
+    </ul>
+
+    <div class="section-label">If You Are Robbed</div>
+    <div class="non-neg-strip">
+      <div class="non-neg-strip-title">Robbery Response Protocol</div>
+      <div class="non-neg-item"><div class="non-neg-icon">1</div>Do NOT resist. Product and cash can be replaced. Your life cannot.</div>
+      <div class="non-neg-item"><div class="non-neg-icon">2</div>Observe as many details as you safely can — clothing, direction, vehicle description.</div>
+      <div class="non-neg-item"><div class="non-neg-icon">3</div>Get to safety first. Leave the area if you can do so safely.</div>
+      <div class="non-neg-item"><div class="non-neg-icon">4</div>Call 911 if you were threatened or a weapon was shown.</div>
+      <div class="non-neg-item"><div class="non-neg-icon">5</div>Call your POC as soon as it is safe to do so.</div>
+    </div>
+
+    <div class="call-grid">
+      <div class="call-pane danger">
+        <div class="call-pane-title">Call 911 When:</div>
+        <div class="call-item">You are threatened or a weapon is shown</div>
+        <div class="call-item">A vehicle accident occurs</div>
+        <div class="call-item">A medical emergency requires an ambulance</div>
+      </div>
+      <div class="call-pane neutral">
+        <div class="call-pane-title">Call POC When:</div>
+        <div class="call-item">Any robbery attempt (weapon or not)</div>
+        <div class="call-item">Suspicious customers or situations</div>
+        <div class="call-item">Product discrepancies</div>
+        <div class="call-item">Any law enforcement interaction</div>
+        <div class="call-item">Vehicle accidents (also 911)</div>
+        <div class="call-item">Device failures</div>
+      </div>
+    </div>
+
+    <div class="scenario"><strong>Scenario:</strong> Someone approaches your vehicle aggressively and demands the product and cash. No weapon is shown.<br><br><strong>Answer:</strong> Comply. Do not resist. Get safe, then immediately call 911 if applicable and your POC. Your personal safety is the only thing that matters in that moment.</div>
+  </div>
+  <div class="page-footer"><span>Stashdash Delivery Employee Handbook</span><span>Cash & Robbery Response</span></div>
+</div>
+
+<!-- ══════ PROFESSIONALISM ══════ -->
+<div id="page-professionalism" class="page">
+  <div class="page-header">
+    <div class="page-eyebrow">Delivery Operations · Section 5</div>
+    <h2 class="page-title">Professionalism & Customer Service</h2>
+    <p class="page-desc">You represent Stashdash Delivery every time you're on the road. Brief, respectful, professional — every interaction.</p>
+  </div>
+  <div class="page-content">
+    <div class="section-label">Customer Interaction Standards</div>
+    <ul class="policy-list">
+      <li><span class="list-bullet bullet-check">✓</span>Be courteous, respectful, and keep interactions brief</li>
+      <li><span class="list-bullet bullet-check">✓</span>Maintain a clean and professional appearance on every shift</li>
+      <li><span class="list-bullet bullet-x">✕</span>Never accept invitations into a customer's home</li>
+      <li><span class="list-bullet bullet-x">✕</span>Never argue with or confront a customer — disengage professionally and contact your POC</li>
+    </ul>
+
+    <div class="section-label">What You May Never Discuss with Customers</div>
+    <div class="alert-box">
+      <div class="alert-box-title">⚠ Do Not Share These</div>
+      <p>Other customers' orders or information</p>
+      <p>Your delivery route or remaining stops</p>
+      <p>Current inventory levels or what's in stock</p>
+      <p>Cash amounts you are carrying</p>
+      <p>Internal Company operations, staffing, or pricing</p>
+    </div>
+    <p>Friendly small talk is perfectly fine. Anything on this list — even a casual comment — is not. When in doubt, keep it brief and move on.</p>
+
+    <div class="section-label">Technology on Deliveries</div>
+    <ul class="policy-list">
+      <li><span class="list-bullet bullet-check">✓</span>Keep your delivery device charged before every shift</li>
+      <li><span class="list-bullet bullet-check">✓</span>Follow GPS and route procedures as directed</li>
+      <li><span class="list-bullet bullet-check">✓</span>Report any discrepancies or device issues immediately</li>
+      <li><span class="list-bullet bullet-x">✕</span>No earbuds or headphones during active deliveries — you need full awareness</li>
+      <li><span class="list-bullet bullet-x">✕</span>No texting, emailing, or phone use while driving — pull over safely first</li>
+    </ul>
+
+    <div class="scenario"><strong>Scenario:</strong> A customer asks how many stops you have left tonight and whether you're usually in their neighborhood.<br><br><strong>Answer:</strong> Give a friendly, vague response — "Just making the rounds!" — and wrap up the interaction. Never share route, schedule, or operational information with customers.</div>
+    <div class="scenario"><strong>Scenario:</strong> A customer is upset about their order and starts raising their voice at the door.<br><br><strong>Answer:</strong> Stay calm, stay respectful, and keep the interaction brief. Do not argue. If the behavior continues, politely disengage and contact your POC to report the situation.</div>
+  </div>
+  <div class="page-footer"><span>Stashdash Delivery Employee Handbook</span><span>Professionalism</span></div>
+</div>
+
+<!-- ══════ WORKPLACE SAFETY ══════ -->
+<div id="page-workplace" class="page">
+  <div class="page-header">
+    <div class="page-eyebrow">Safety & Security · Section 1</div>
+    <h2 class="page-title">Workplace Safety</h2>
+    <p class="page-desc">Safety is everyone's responsibility. Report unsafe conditions, cooperate with safety inspections, and always think safety first.</p>
+  </div>
+  <div class="page-content">
+    <div class="policy-title">Safety Policy</div>
+    <p>The health and well-being of our employees is foremost among the Company's concerns. All accidents — including minor ones — must be reported immediately to your supervisor. Consult the Company's Injury and Illness Prevention Program (IIPP) for additional detail.</p>
+
+    <div class="policy-title">Weapons in the Workplace</div>
+    <p>The Company strictly prohibits all employees from possessing any weapons on Company premises, in Company vehicles, or in personal vehicles used for delivery services — regardless of concealed weapons permits.</p>
+    <div class="two-col">
+      <div class="mini-card"><div class="mini-card-label">Prohibited</div><div class="mini-card-value">Guns, tasers, air guns, pellet guns</div></div>
+      <div class="mini-card"><div class="mini-card-label">Prohibited</div><div class="mini-card-value">Knives, switchblades, daggers, swords</div></div>
+      <div class="mini-card"><div class="mini-card-label">Prohibited</div><div class="mini-card-value">Explosives, nightsticks</div></div>
+      <div class="mini-card"><div class="mini-card-label">Prohibited</div><div class="mini-card-value">Any object defined as a dangerous weapon by law</div></div>
+    </div>
+    <div class="info-box"><p><strong>Pepper spray exception:</strong> Employees may carry personal pepper spray while not on Company premises, so long as it is used lawfully and not in the course of performing employment duties.</p></div>
+
+    <div class="policy-title">Workplace Violence</div>
+    <p>The Company has a zero-tolerance policy for violent acts or threats of violence against employees, customers, or vendors. Never confront someone you suspect is carrying a concealed weapon — contact your Safety & Security department immediately.</p>
+
+    <div class="policy-title">Theft</div>
+    <p>Theft of money or property from the Company, co-workers, or customers will result in immediate termination and referral to law enforcement. The Company reserves the right to inspect any vehicle, bag, locker, or personal belonging on Company property to investigate theft allegations.</p>
+  </div>
+  <div class="page-footer"><span>Stashdash Delivery Employee Handbook</span><span>Workplace Safety</span></div>
+</div>
+
+<!-- ══════ DRUGS ══════ -->
+<div id="page-drugs" class="page">
+  <div class="page-header">
+    <div class="page-eyebrow">Safety & Security · Section 2</div>
+    <h2 class="page-title">Alcohol, Drugs & Smoking</h2>
+    <p class="page-desc">You are operating a vehicle and handling regulated products. Impairment of any kind is a serious safety risk and a serious policy violation.</p>
+  </div>
+  <div class="page-content">
+    <div class="policy-title">Drug & Alcohol Policy</div>
+    <p>All employees are prohibited from manufacturing, distributing, possessing, or using illegal drugs or marijuana (regardless of prescription) on Company property, in Company vehicles, or while performing work duties away from Company premises.</p>
+    <p>Employees are also prohibited from having unauthorized controlled substances or marijuana in their system while at work, or from having excessive amounts of otherwise lawful substances in their systems.</p>
+    <div class="alert-box">
+      <div class="alert-box-title">⚠ Critical for Delivery Drivers</div>
+      <p>It is strictly forbidden to operate any vehicle while under the influence of any substance — including legally prescribed medication that causes dizziness or drowsiness. If your prescription may affect your ability to drive, disclose it to HR immediately.</p>
+    </div>
+
+    <div class="policy-title">Smoking</div>
+    <p>Smoking — including e-cigarettes, vapes, and personal vaporizing devices — is prohibited in all Company buildings and vehicles. Smoking must be confined to designated outdoor areas only.</p>
+
+    <div class="policy-title">Drug & Alcohol Testing</div>
+    <p>Employees may be subject to drug or alcohol screening if the Company has reasonable suspicion of a violation. Reasonable suspicion may arise from supervisory observation, co-worker reports, performance decline, behavioral changes, or involvement in a work-related accident.</p>
+    <p>Employees in safety-sensitive positions (including drivers) may be tested on a random or periodic basis as permitted by applicable law. Refusing to cooperate with testing, tampering with a sample, or failing to execute consent forms may result in termination.</p>
+  </div>
+  <div class="page-footer"><span>Stashdash Delivery Employee Handbook</span><span>Alcohol, Drugs & Smoking</span></div>
+</div>
+
+<!-- ══════ TECHNOLOGY ══════ -->
+<div id="page-tech" class="page">
+  <div class="page-header">
+    <div class="page-eyebrow">Safety & Security · Section 3</div>
+    <h2 class="page-title">Technology & Social Media</h2>
+    <p class="page-desc">Company devices are for Company business. Protect confidential information and use good judgment online.</p>
+  </div>
+  <div class="page-content">
+    <div class="policy-title">Device Usage</div>
+    <p>Company-provided devices are to be used exclusively for work-related tasks. Personal activities including texting, streaming, or browsing non-work websites are prohibited during work hours. Unless preapproved by management, earbuds and headsets are not permitted during working hours.</p>
+
+    <div class="policy-title">Driving & Devices</div>
+    <p>Employees who drive as part of their duties are expected to refrain from using personal devices while driving. Regardless of circumstances — including slow or stopped traffic — pull over safely before placing or accepting a call or texting. Traffic violations incurred from personal device use are the sole liability of the employee.</p>
+
+    <div class="policy-title">No Expectation of Privacy</div>
+    <p>All Company IT resources, communications systems, and devices are Company property. Employees have no expectation of privacy when using Company systems. The Company reserves the right to monitor, intercept, and review all electronic activities on Company systems.</p>
+
+    <div class="policy-title">Social Media</div>
+    <p>Employees are personally responsible for what they communicate on social media. Do not post anything that brings the Company into disrepute or discloses confidential information. If you disclose your affiliation with Stashdash Delivery, include a disclaimer that your views are your own and do not represent the Company.</p>
+    <div class="alert-box">
+      <div class="alert-box-title">⚠ Social Media Violations</div>
+      <p>Using social media to harass, discriminate, disclose confidential information, or misrepresent the Company may result in disciplinary action up to and including termination.</p>
+    </div>
+
+    <div class="policy-title">Photography & Video</div>
+    <p>Employees must not photograph or record in restricted areas, share confidential information through photos or videos, or invade the privacy of other employees while on Company premises or during work hours.</p>
+  </div>
+  <div class="page-footer"><span>Stashdash Delivery Employee Handbook</span><span>Technology & Social Media</span></div>
+</div>
+
+<!-- ══════ EMPLOYMENT TERMS ══════ -->
+<div id="page-terms" class="page">
+  <div class="page-header">
+    <div class="page-eyebrow">Employment · Section 1</div>
+    <h2 class="page-title">Employment Terms</h2>
+    <p class="page-desc">Understanding the terms of your employment is important. Here's what you need to know.</p>
+  </div>
+  <div class="page-content">
+    <div class="policy-title">Introductory Period</div>
+    <p>The first <strong>90 days</strong> of employment is an introductory period during which your performance, attendance, and overall attitude will be assessed. Employees who do not demonstrate expected performance and commitment may be terminated during or upon completion of this period.</p>
+    <div class="amber-box"><p>Completion of the introductory period does not change the at-will employment relationship. The Company may extend your introductory period if additional assessment time is needed.</p></div>
+
+    <div class="policy-title">At-Will Employment</div>
+    <p>Employment at Stashdash Delivery is at-will. This means either you or the Company may terminate the employment relationship at any time, with or without notice, and with or without cause. Nothing in this handbook creates a promise of continued employment.</p>
+
+    <div class="policy-title">Background Screening</div>
+    <p>The Company reserves the right to conduct background screening on all employees to ensure qualifications, safety, and suitability. Contact HR with any questions.</p>
+
+    <div class="policy-title">Resignations</div>
+    <p>We ask employees to provide at least <strong>2 weeks' written notice</strong> before resigning. Return all Company property including ID badges, keys, and equipment before your last day. You may be asked to attend an exit interview.</p>
+
+    <div class="policy-title">Employee Classification</div>
+    <div class="two-col">
+      <div class="mini-card"><div class="mini-card-label">Full-Time</div><div class="mini-card-value">Normally scheduled 30+ hours per week.</div></div>
+      <div class="mini-card"><div class="mini-card-label">Part-Time</div><div class="mini-card-value">Normally scheduled fewer than 30 hours per week.</div></div>
+      <div class="mini-card"><div class="mini-card-label">Temporary</div><div class="mini-card-value">Seasonal or special projects. Not eligible for Company benefits unless required by law.</div></div>
+    </div>
+  </div>
+  <div class="page-footer"><span>Stashdash Delivery Employee Handbook</span><span>Employment Terms</span></div>
+</div>
+
+<!-- ══════ PAYROLL ══════ -->
+<div id="page-payroll" class="page">
+  <div class="page-header">
+    <div class="page-eyebrow">Employment · Section 2</div>
+    <h2 class="page-title">Timekeeping & Payroll</h2>
+    <p class="page-desc">Accurate timekeeping is required by law and ensures you get paid correctly. Working off the clock is never allowed.</p>
+  </div>
+  <div class="page-content">
+    <div class="policy-title">Timekeeping Rules</div>
+    <ul class="policy-list">
+      <li><span class="list-bullet bullet-check">✓</span>Clock in and out via the Time Clock portal at the start and end of every shift</li>
+      <li><span class="list-bullet bullet-check">✓</span>Clock out for all unpaid meal periods</li>
+      <li><span class="list-bullet bullet-check">✓</span>Report time entry errors immediately via the employee portal</li>
+      <li><span class="list-bullet bullet-x">✕</span>Working "off the clock" is strictly prohibited</li>
+      <li><span class="list-bullet bullet-x">✕</span>Never record another employee's time</li>
+      <li><span class="list-bullet bullet-x">✕</span>Overtime without prior supervisor approval may result in disciplinary action</li>
+    </ul>
+
+    <div class="policy-title">California Break Requirements</div>
+    <p>Non-exempt employees who work more than 5 hours must take an uninterrupted 30-minute meal period (no later than the end of the 5th hour). A second 30-minute meal period is required if you work more than 10 hours.</p>
+    <table class="break-table">
+      <tr><th>Hours Worked in Day</th><th>Paid Rest Breaks</th></tr>
+      <tr><td>At least 3.5 and up to 6 hours</td><td><span class="break-count">1</span></td></tr>
+      <tr><td>More than 6 and up to 10 hours</td><td><span class="break-count">2</span></td></tr>
+      <tr><td>More than 10 and up to 14 hours</td><td><span class="break-count">3</span></td></tr>
+    </table>
+
+    <div class="info-box">
+      <p><strong>Rest periods are paid</strong> — you do not clock out for them. They are 10 minutes and you are relieved of all duties. No supervisor may instruct you to skip a rest period.</p>
+      <p>Report any instruction to skip a meal or rest period to management immediately at <a href="mailto:alex.sanchez@stashdash.com" style="color:var(--off-black);font-weight:600;">alex.sanchez@stashdash.com</a>.</p>
+    </div>
+  </div>
+  <div class="page-footer"><span>Stashdash Delivery Employee Handbook</span><span>Timekeeping & Payroll</span></div>
+</div>
+
+<!-- ══════ TRAINING VIDEOS ══════ -->
+<div id="page-videos" class="page">
+  <div class="page-header">
+    <div class="page-eyebrow">Training</div>
+    <h2 class="page-title">Training Videos</h2>
+    <p class="page-desc">Step-by-step walkthroughs for everything you'll do in the driver app. Click any video to open it in a new tab.</p>
+  </div>
+  <div class="page-content" style="max-width:1000px;">
+
+    <div class="videos-intro">
+      <div class="videos-intro-icon">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9" cy="9" r="8" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+          <polygon points="7,5.5 13.5,9 7,12.5" fill="rgba(255,255,255,0.6)"/>
+        </svg>
+      </div>
+      <div class="videos-intro-text">
+        <div class="videos-intro-title">How to use these guides</div>
+        <div class="videos-intro-body">Each card below links to a Guidde step-by-step walkthrough. Click the card to open it in a new tab. If you're ever unsure how to complete a step in the driver app while on delivery — come back here first.</div>
+      </div>
+    </div>
+
+    <!-- ─── CATEGORY: Starting Your Shift ─── -->
+    <div class="video-category">
+      <div class="video-category-header">
+        <div class="video-category-icon">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8" cy="8" r="6.5" stroke="white" stroke-width="1.4"/>
+            <polyline points="8,4.5 8,8 10.5,10" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="video-category-title">Starting Your Shift</div>
+        <span class="video-category-count">3 guides</span>
+      </div>
+      <div class="video-grid">
+
+        <a class="video-card" href="PASTE_GUIDDE_LINK_HERE" target="_blank" rel="noopener">
+          <div class="video-thumb-placeholder">
+            <div class="thumb-logo">Stashdash</div>
+            <div class="play-overlay">
+              <div class="play-btn">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><polygon points="3,1.5 13,7 3,12.5" fill="#000"/></svg>
+              </div>
+            </div>
+            <span class="video-duration">— : —</span>
+          </div>
+          <div class="video-info">
+            <div class="video-tag">Starting Your Shift</div>
+            <div class="video-title">How to Log In to the Driver App</div>
+            <div class="video-desc">Opening the app, entering your credentials, and confirming your shift start.</div>
+            <div class="video-link-label">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H4M9 1V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Open guide
+            </div>
+          </div>
+        </a>
+
+        <a class="video-card" href="PASTE_GUIDDE_LINK_HERE" target="_blank" rel="noopener">
+          <div class="video-thumb-placeholder">
+            <div class="thumb-logo">Stashdash</div>
+            <div class="play-overlay">
+              <div class="play-btn">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><polygon points="3,1.5 13,7 3,12.5" fill="#000"/></svg>
+              </div>
+            </div>
+            <span class="video-duration">— : —</span>
+          </div>
+          <div class="video-info">
+            <div class="video-tag">Starting Your Shift</div>
+            <div class="video-title">Reviewing Your Delivery Queue</div>
+            <div class="video-desc">How to see your assigned orders, route order, and customer details before heading out.</div>
+            <div class="video-link-label">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H4M9 1V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Open guide
+            </div>
+          </div>
+        </a>
+
+        <a class="video-card" href="PASTE_GUIDDE_LINK_HERE" target="_blank" rel="noopener">
+          <div class="video-thumb-placeholder">
+            <div class="thumb-logo">Stashdash</div>
+            <div class="play-overlay">
+              <div class="play-btn">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><polygon points="3,1.5 13,7 3,12.5" fill="#000"/></svg>
+              </div>
+            </div>
+            <span class="video-duration">— : —</span>
+          </div>
+          <div class="video-info">
+            <div class="video-tag">Starting Your Shift</div>
+            <div class="video-title">Confirming Your Order Manifest</div>
+            <div class="video-desc">Verifying all products are loaded and match the app before leaving the store.</div>
+            <div class="video-link-label">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H4M9 1V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Open guide
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ─── CATEGORY: Completing a Delivery ─── -->
+    <div class="video-category">
+      <div class="video-category-header">
+        <div class="video-category-icon">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="4" width="12" height="9" rx="1.5" stroke="white" stroke-width="1.4"/>
+            <polyline points="5,8 7.5,10.5 11,6" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="video-category-title">Completing a Delivery</div>
+        <span class="video-category-count">3 guides</span>
+      </div>
+      <div class="video-grid">
+
+        <a class="video-card" href="PASTE_GUIDDE_LINK_HERE" target="_blank" rel="noopener">
+          <div class="video-thumb-placeholder">
+            <div class="thumb-logo">Stashdash</div>
+            <div class="play-overlay">
+              <div class="play-btn">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><polygon points="3,1.5 13,7 3,12.5" fill="#000"/></svg>
+              </div>
+            </div>
+            <span class="video-duration">— : —</span>
+          </div>
+          <div class="video-info">
+            <div class="video-tag">Completing a Delivery</div>
+            <div class="video-title">Scanning Customer ID in the App</div>
+            <div class="video-desc">How to use the app's ID scanner to verify age and complete the compliance check at the door.</div>
+            <div class="video-link-label">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H4M9 1V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Open guide
+            </div>
+          </div>
+        </a>
+
+        <a class="video-card" href="PASTE_GUIDDE_LINK_HERE" target="_blank" rel="noopener">
+          <div class="video-thumb-placeholder">
+            <div class="thumb-logo">Stashdash</div>
+            <div class="play-overlay">
+              <div class="play-btn">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><polygon points="3,1.5 13,7 3,12.5" fill="#000"/></svg>
+              </div>
+            </div>
+            <span class="video-duration">— : —</span>
+          </div>
+          <div class="video-info">
+            <div class="video-tag">Completing a Delivery</div>
+            <div class="video-title">Marking an Order as Delivered</div>
+            <div class="video-desc">Confirming handoff, capturing the required signature or photo, and closing out the delivery.</div>
+            <div class="video-link-label">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H4M9 1V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Open guide
+            </div>
+          </div>
+        </a>
+
+        <a class="video-card" href="PASTE_GUIDDE_LINK_HERE" target="_blank" rel="noopener">
+          <div class="video-thumb-placeholder">
+            <div class="thumb-logo">Stashdash</div>
+            <div class="play-overlay">
+              <div class="play-btn">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><polygon points="3,1.5 13,7 3,12.5" fill="#000"/></svg>
+              </div>
+            </div>
+            <span class="video-duration">— : —</span>
+          </div>
+          <div class="video-info">
+            <div class="video-tag">Completing a Delivery</div>
+            <div class="video-title">Handling a Failed Delivery</div>
+            <div class="video-desc">What to do in the app when a delivery can't be completed — marking it, adding notes, and returning product.</div>
+            <div class="video-link-label">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H4M9 1V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Open guide
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ─── CATEGORY: Payments ─── -->
+    <div class="video-category">
+      <div class="video-category-header">
+        <div class="video-category-icon">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1.5" y="4" width="13" height="9" rx="1.5" stroke="white" stroke-width="1.4"/>
+            <line x1="1.5" y1="7" x2="14.5" y2="7" stroke="white" stroke-width="1.4"/>
+          </svg>
+        </div>
+        <div class="video-category-title">Payments</div>
+        <span class="video-category-count">2 guides</span>
+      </div>
+      <div class="video-grid">
+
+        <a class="video-card" href="PASTE_GUIDDE_LINK_HERE" target="_blank" rel="noopener">
+          <div class="video-thumb-placeholder">
+            <div class="thumb-logo">Stashdash</div>
+            <div class="play-overlay">
+              <div class="play-btn">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><polygon points="3,1.5 13,7 3,12.5" fill="#000"/></svg>
+              </div>
+            </div>
+            <span class="video-duration">— : —</span>
+          </div>
+          <div class="video-info">
+            <div class="video-tag">Payments</div>
+            <div class="video-title">Collecting & Recording Cash Payment</div>
+            <div class="video-desc">How to enter cash collected, calculate change, and confirm the transaction in the app.</div>
+            <div class="video-link-label">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H4M9 1V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Open guide
+            </div>
+          </div>
+        </a>
+
+        <a class="video-card" href="PASTE_GUIDDE_LINK_HERE" target="_blank" rel="noopener">
+          <div class="video-thumb-placeholder">
+            <div class="thumb-logo">Stashdash</div>
+            <div class="play-overlay">
+              <div class="play-btn">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><polygon points="3,1.5 13,7 3,12.5" fill="#000"/></svg>
+              </div>
+            </div>
+            <span class="video-duration">— : —</span>
+          </div>
+          <div class="video-info">
+            <div class="video-tag">Payments</div>
+            <div class="video-title">Processing a Digital / Pre-Paid Order</div>
+            <div class="video-desc">Confirming pre-paid orders and completing the transaction without collecting cash.</div>
+            <div class="video-link-label">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H4M9 1V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Open guide
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ─── CATEGORY: Reporting & End of Shift ─── -->
+    <div class="video-category">
+      <div class="video-category-header">
+        <div class="video-category-icon">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="1.5" width="10" height="13" rx="1.5" stroke="white" stroke-width="1.4"/>
+            <line x1="5.5" y1="5.5" x2="10.5" y2="5.5" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="5.5" y1="8" x2="10.5" y2="8" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="5.5" y1="10.5" x2="8.5" y2="10.5" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="video-category-title">Reporting & End of Shift</div>
+        <span class="video-category-count">2 guides</span>
+      </div>
+      <div class="video-grid">
+
+        <a class="video-card" href="PASTE_GUIDDE_LINK_HERE" target="_blank" rel="noopener">
+          <div class="video-thumb-placeholder">
+            <div class="thumb-logo">Stashdash</div>
+            <div class="play-overlay">
+              <div class="play-btn">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><polygon points="3,1.5 13,7 3,12.5" fill="#000"/></svg>
+              </div>
+            </div>
+            <span class="video-duration">— : —</span>
+          </div>
+          <div class="video-info">
+            <div class="video-tag">Reporting & End of Shift</div>
+            <div class="video-title">Reporting a Product Discrepancy</div>
+            <div class="video-desc">How to flag a missing or incorrect item in the app and notify dispatch immediately.</div>
+            <div class="video-link-label">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H4M9 1V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Open guide
+            </div>
+          </div>
+        </a>
+
+        <a class="video-card" href="PASTE_GUIDDE_LINK_HERE" target="_blank" rel="noopener">
+          <div class="video-thumb-placeholder">
+            <div class="thumb-logo">Stashdash</div>
+            <div class="play-overlay">
+              <div class="play-btn">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><polygon points="3,1.5 13,7 3,12.5" fill="#000"/></svg>
+              </div>
+            </div>
+            <span class="video-duration">— : —</span>
+          </div>
+          <div class="video-info">
+            <div class="video-tag">Reporting & End of Shift</div>
+            <div class="video-title">Clocking Out & Ending Your Shift</div>
+            <div class="video-desc">Completing your shift in the app, submitting your cash reconciliation, and logging out.</div>
+            <div class="video-link-label">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H4M9 1V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Open guide
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ─── How to add your own guides ─── -->
+    <div class="highlight-box" style="margin-top:8px;">
+      <strong>Adding your Guidde links:</strong> Replace each <code style="background:rgba(255,255,255,0.1);padding:1px 5px;border-radius:3px;font-family:monospace;font-size:12px;">PASTE_GUIDDE_LINK_HERE</code> in the HTML with your actual Guidde share URL. You can also swap in a screenshot from Guidde as the thumbnail image by replacing the placeholder block with an <code style="background:rgba(255,255,255,0.1);padding:1px 5px;border-radius:3px;font-family:monospace;font-size:12px;">&lt;img&gt;</code> tag inside <code style="background:rgba(255,255,255,0.1);padding:1px 5px;border-radius:3px;font-family:monospace;font-size:12px;">.video-thumb</code>.
+    </div>
+
+  </div>
+  <div class="page-footer"><span>Stashdash Delivery Employee Handbook</span><span>Training Videos</span></div>
+</div>
+
+</main>
+
+<script>
+  function show(id, el) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+    if (el) el.classList.add('active');
+    window.scrollTo(0, 0);
+    if (document.getElementById('main')) document.getElementById('main').scrollTop = 0;
+    if (window.innerWidth <= 800) document.getElementById('sidebar').classList.remove('open');
+  }
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('open');
+  }
+</script>
+</body>
+</html>
